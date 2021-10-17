@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+
+        <div class="container-fluid">
+            <a class="navbar-brand mx-3" href="/"><img src="/media/images/GiveUp_3.png" alt="" ></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <form class="d-flex">
+                            <input class="form-control me-1 border border-success" type="search" placeholder="Search Here" aria-label="Search" style="width: 35rem;">
+                            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" style="color: green; font-weight: bold;" class="btn btn-toolbar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="bi-geo-alt" style="width: 20px;"></i> Phoenix: 30 miles
+                        </button>
+
+                        <!-- location selection Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h4 class="text-center" style="font-weight: bold;">Location</h4>
+                                    <br>
+                                    <h3 class="text-center" style="font-weight:bolder; font-size: smaller;">ZipCode or Area</h3>
+                                    <div class="">
+                                        <input class="form-control" type="text" placeholder="Enter area or city here..">
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <label for="customRange2" class="form-label">Distance</label>
+                                        <input type="range" class="form-range" min="0" max="5" id="customRange2">
+                                    </div>
+                                </div>
+                                <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-success justify-content-center">Save changes</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav align-items-end">
+                    <li class="nav-item nav-pills">
+                        <a href="" class="nav-link" style="font-weight: bold; color: Green;">Help</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-weight: bold; color: Green;">About</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                          </ul>
+                    </li>
+
+                    {% if user.is_authenticated %}
+                        <ul class="nav nav-pills">
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle btn-success" style="color: darkgreen; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{user.username|title}}</a>
+                              <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/userprofile/logout">Logout</a></li>
+                              </ul>
+                            </li>
+                        </ul>
+                    {% else %}
+                        <li class="nav-item nav-pills">
+                            <a href="/userprofile/login" class="nav-link" style="font-weight: bold; color: Green;">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+        </div>
+      </div>
+    </nav>

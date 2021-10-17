@@ -1,0 +1,23 @@
+{% extends '../includes/header.html' %}
+
+  {% block content %}
+  {% load static %}
+  {% load crispy_forms_tags %}
+  <div class="container col align-items-center col-6 col-sm-4">
+      <br>
+      <br>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+    <br>
+    <h5>Don't have account yet?
+      <a href="/userprofile/register" class="link-success">Create an Account</a>
+    </h5>
+
+  </div>
+
+  {% endblock %}

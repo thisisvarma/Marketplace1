@@ -1,0 +1,21 @@
+{% extends '../includes/header.html' %}
+
+  {% block content %}
+  {% load static %}
+  {% load crispy_forms_tags %}
+
+    <!-- code is here --->
+      <div class="container col align-self-center col-6 col-sm-4">
+        <br>
+        <br>
+          <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+              <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+          <br>
+        <h5>Already have an Account? click here to
+          <a href="/userprofile/login" class="link-success">Login</a>
+        </h5>
+      </div>
+  {% endblock %}

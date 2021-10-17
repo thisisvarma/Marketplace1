@@ -1,0 +1,33 @@
+{% extends '../includes/header.html' %}
+
+  {% block content %}
+  {% load static %}
+    <br>
+    <br>
+    <h1 class="text-center" style="font-weight: bold; color: green; font-size: x-large;">The simplest way to find items near your location</h1>
+    <br>
+    <div class="container-fluid"></div>
+      <div class="row m-2">
+          <!-- Boxes data -->
+        <div class="row align-items-start p-2 justify-content-center">
+            {% for item in goods %}
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 m-2 " style="width: 15rem; height: 20rem;">
+                <a href="{% url 'itemdetails' item.id %}" style="text-decoration: black;">
+                    <img src="{{ item.goods_image.url }}" class="card-img-top img-thumbnail" style="height:150px; width: 185px;" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: medium; font-weight: bolder; color: #000;">{{ item.title }}</h5>
+                        <div class="row justify-content-end">
+                            <div class="col">
+                                <p class="card-text" style="color: gray; font-size: small;">{{ item.location }}</p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text" style="color: gray; font-size: small;">${{ item.price }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div> <!-- /dev container fluid -->
+      </div>
+  {% endblock %}

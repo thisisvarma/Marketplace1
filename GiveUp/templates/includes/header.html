@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>UI One - Shop All at One Place</title>
+    <link rel="icon" href="/media/images/GiveUp_2.png" class="">
+</head>
+<body>
+
+    <!--    navbar-->
+    {% include './navbar.html' %}
+    {% include './messages.html' %}
+
+    <div class="container">
+        <div class="row">
+            <ul class="nav nav-tabs justify-content-center">
+                <li><a class="nav-link" href="#" style="font-weight: bold; color: green; font-size: large;">Post Accomidations</a></li>
+                <li><a class="nav-link" href="#" style="font-weight: bold; color: green; font-size: large;">Find Accomidations</a></li>
+                <li><a class="nav-link" href="#" style="font-weight: bold; color: green; font-size: large;">Vacation Rentals</a></li>
+                <li><a class="nav-link" href="#" style="font-weight: bold; color: green; font-size: large;">Local Classified</a></li>
+                <li><a class="nav-link" href="#" style="font-weight: bold; color: green; font-size: large;">Local Jobs</a></li>
+                <li><a class="nav-link" href="#" style="font-weight: bold; color: green; font-size: large;">Rent Vehicles</a></li>
+                <li><a class="nav-link" href="#" style="font-weight: bold; color: green; font-size: large;">Travel Groups</a></li>
+              </ul>
+        </div>
+    </div>
+
+    {% block content %}
+
+
+    {% endblock %}
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+    <script src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends '../includes/header.html' %}
+
+  {% block content %}
+  {% load static %}
+    <div class="container-fluid">
+        <div class="row m-2">
+            <!-- Boxes data -->
+            <div class="col col-lg-8 border border-info d-flex align-items-lg-stretch justify-content-center" style="height: 450px; background-color: rgb(219, 219, 219);">
+              <img src="{{ item_details.goods_image.url }}" alt="" class="align-items-center">
+            </div>
+            <div class="col col-lg-4 d-flex align-items-start p-4">
+              <div class="">
+                  <h4 class="">{{ item_details.title }}</h3>
+                    <h3 class="">${{ item_details.price }}</h3>
+                    <br>
+                    <div class="">
+                        <p class="">Posted 10 days ago</p>
+                        <p class="">Location: {{ item_details.location }}</p>
+                    </div>
+
+                    <div class="d-flex align-item-bottom justify-content-start">
+                        <h5>Posted By: {{ item_details.posted_by }}</h5>
+                    </div>
+              </div>
+            </div>
+        </div>
+        <div class="row p-4 m-4">
+            <h3 class="">Description:</h3>
+            <p class="">{{ item_details.description }}</p>
+        </div>
+    </div>
+      
+  {% endblock %}
