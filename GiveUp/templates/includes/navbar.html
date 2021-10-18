@@ -1,7 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-
-        <div class="container-fluid">
-            <a class="navbar-brand mx-3" href="/"><img src="/media/images/GiveUp_3.png" alt="" ></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent p-0">
+        <div class="container-fluid p-0 m-0">
+            <a class="navbar-brand mx-5 mr-3 p-0" href="/"><img src="/media/images/GiveUp_3.png" alt="" ></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -63,13 +62,12 @@
                             <li><a class="dropdown-item" href="#">Separated link</a></li>
                           </ul>
                     </li>
-
                     {% if user.is_authenticated %}
                         <ul class="nav nav-pills">
                             <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle btn-success" style="color: darkgreen; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{user.username|title}}</a>
                               <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="/userprofile/profile">Profile</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="/userprofile/logout">Logout</a></li>

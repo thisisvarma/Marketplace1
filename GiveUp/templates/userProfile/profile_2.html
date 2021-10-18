@@ -1,0 +1,12 @@
+{% extends '../includes/header.html' %}
+
+  {% block content %}
+  {% load static %}
+  {% load crispy_forms_tags %}
+  {% load widget_tweaks %}
+
+<!--    {{ user_form|crispy }}-->
+    {{ userprofile_form|crispy }}
+
+
+  {% endblock %}

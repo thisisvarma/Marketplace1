@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'userProfile',
     'crispy_forms',
     'crispy_bootstrap5',
+    'widget_tweaks',
 ]
 
 LOGIN_URL = '/userprofile/login'

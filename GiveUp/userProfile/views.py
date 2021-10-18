@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
-from .forms import NewRegistration
+from .forms import NewRegistration, UserForm, UserProfileForm
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from posts.views import default_home
+from django.contrib.auth.decorators import login_required
+from django.db import transaction
 
 
 # Create your views here.
@@ -58,3 +60,25 @@ def logout_request(request):
     logout(request)
     messages.info(request, 'You have successfully logged out.!')
     return redirect('login')
+
+
+@login_required
+@transaction.atomic
+def profile(request):
+    if request.method == 'POST':
+
+        user_form = UserForm(request.POST, instance=request.user)
+        userprofile_form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile)
+
+        if user_form.is_valid() and userprofile_form.is_valid():
+            user_form.save()
+            userprofile_form.save()
+            messages.success(request, message=f'Your profile was successfully updated!')
+            return redirect('profile')
+        else:
+            messages.error(request, f'Please correct the error below.')
+    else:
+        user_form = UserForm(instance=request.user)
+        userprofile_form = UserProfileForm(instance=request.user.userprofile)
+
+    return render(request, template_name='userProfile/profile.html', context={'user_form': user_form, 'userprofile_form':userprofile_form})
