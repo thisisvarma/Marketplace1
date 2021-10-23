@@ -20,6 +20,11 @@ class UserProfile(models.Model):
     sex = models.CharField(max_length=20, choices=sex_choices, default='NA')
     Bio = models.TextField(blank=True, null=True)
     date_of_birth = models.DateTimeField(blank=True, null=True)
+    facebook_id = models.CharField(max_length=25, blank=True, null=True)
+    instagram_id = models.CharField(max_length=25, blank=True, null=True)
+    twitter_id = models.CharField(max_length=25, null=True, blank=True)
+    geo_location = models.CharField(max_length=55, null=True, blank=True)
+    address = models.CharField(max_length=75, null=True, blank=True)
 
     def __str__(self):
         return f'{self.user} profile'

@@ -78,7 +78,16 @@
                       <h6 class="mb-0">Bio</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {% render_field userprofile_form.Bio placeholder=userprofile.Bio %}
+                      {% render_field userprofile_form.Bio placeholder=user.userprofile.Bio %}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Sex</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {% render_field userprofile_form.sex placeholder=user.userprofile.sex %}
                     </div>
                   </div>
                   <hr>
@@ -101,12 +110,39 @@
                     </div>
                   </div>
                   <hr>
-                  <div class="row">
+                  <!-- <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
+                      <h6 class="mb-0">MeetUp location</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
+                      {% render_field userprofile_form.geo_location placeholder=userprofile.geo_location %}
+                    </div>
+                  </div>
+                  <hr> -->
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Facebook ID</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {% render_field userprofile_form.facebook_id placeholder=userprofile.facebook_id %}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Instagram ID</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {% render_field userprofile_form.facebook_id placeholder=userprofile.facebook_id %}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Twitter ID</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {% render_field userprofile_form.facebook_id placeholder=userprofile.facebook_id %}
                     </div>
                   </div>
                   <hr>
