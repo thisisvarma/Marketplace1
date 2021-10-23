@@ -6,6 +6,8 @@ from django.contrib.auth import login, authenticate, logout
 from posts.views import default_home
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
+from django.contrib.auth.models import User
+from django.shortcuts import render, get_object_or_404
 
 
 # Create your views here.
@@ -82,3 +84,13 @@ def profile(request):
         userprofile_form = UserProfileForm(instance=request.user.userprofile)
 
     return render(request, template_name='userProfile/profile.html', context={'user_form': user_form, 'userprofile_form':userprofile_form})
+
+
+@login_required
+def profile_view(request, username):
+    # print(f'username is {username}')
+    # userprofile = User.objects.get(username=username)
+    userprofile_details = get_object_or_404(User, username=username)
+    return render(request=request, template_name='userProfile/othersprofile.html', context={
+        'userprofile_details': userprofile_details
+    })
