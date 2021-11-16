@@ -1,0 +1,46 @@
+#version: "3.9"
+#
+#services:
+#  db:
+#    image: mysql:latest
+#    restart: always
+#    environment:
+#      MYSQL_ROOT_PASSWORD: Happy123
+#      MYSQL_DATABASE: giveup
+#      MYSQL_USER: admin
+#      MYSQL_PASSWORD: Happy123
+#
+#  giveup_web:
+#    depends_on:
+#      - db
+#    build: ""
+#    ports:
+#      - "8080:8080"
+#    restart: always
+#    environment:
+#      database_hostname: db
+#      databse_username: root
+#      database_password: Happy123
+#      database_port: 3306
+
+version: "3.9"
+
+services:
+  web:
+    build: ""
+    restart: always
+    container_name: giveup_web
+    command: python GiveUp/manage.py runserver 8080
+    ports:
+      - "8080:8080"
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PWD: Happ123
+      database_hostname: 127.0.0.1
+      database_username: root
+      database_password: Happy123
+      database_port: 3306
+    volumes:
+      - db_data:/var/lib/mysql
+volumes:
+  db_data: {}

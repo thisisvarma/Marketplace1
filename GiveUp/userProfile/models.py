@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from PIL import Image
+from address.models import AddressField
 
 sex_choices = [
     ('male', 'male'),
@@ -24,7 +25,7 @@ class UserProfile(models.Model):
     instagram_id = models.CharField(max_length=25, blank=True, null=True)
     twitter_id = models.CharField(max_length=25, null=True, blank=True)
     geo_location = models.CharField(max_length=55, null=True, blank=True)
-    address = models.CharField(max_length=75, null=True, blank=True)
+    address = AddressField(on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return f'{self.user} profile'

@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'widget_tweaks',
+    'address',
 ]
+
+GOOGLE_API_KEY = 'AIzaSyA5cP9KGoAMUFntabewiVu0aogMGbExhI0'
 
 LOGIN_URL = '/userprofile/login'
 LOGIN_REDIRECT_URL = '/userprofile/login'
@@ -84,13 +87,36 @@ WSGI_APPLICATION = 'GiveUp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# use SQLLite
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+import os
+
+database_hostname = os.getenv('database_hostname')
+database_username = os.getenv('databse_username')
+database_password = os.getenv('database_password')
+database_port = os.getenv('database_port')
+
+# database_hostname: host.docker.internal
+# database_username: root
+# database_password: Happy123
+# database_port: 3306
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'giveup',
+        'USER': 'root',
+        'PASSWORD': 'Happ123',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
